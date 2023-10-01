@@ -3,9 +3,9 @@ export class ItemController {
     this.itemModel = itemModel
   }
 
-  getAll = (req, res) => {
+  getAll = async (req, res) => {
     const { q: query } = req.query
-    const items = this.itemModel.getAll({ query })
+    const items = await this.itemModel.getAll({ query })
 
     if (items) return res.json(items)
 

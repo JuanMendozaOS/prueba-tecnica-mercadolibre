@@ -5,7 +5,7 @@ import { ItemModel } from './models/item.js'
 const app = express()
 app.use(json())
 
-app.use('/items', createItemRouter({ itemModel: ItemModel }))
+app.use('/api/items', createItemRouter({ itemModel: ItemModel }))
 
 const PORT = process.env.PORT ?? 3001
 
