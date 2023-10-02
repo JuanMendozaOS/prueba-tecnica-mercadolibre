@@ -39,7 +39,7 @@ function getItems (results) {
       price: {
         currency: element.currency_id,
         amount: element.price,
-        decimals: countDecimals(element.price)
+        decimals: countDecimals(element.price, '.')
       },
       picture: element.thumbnail,
       condition: element.buying_mode,

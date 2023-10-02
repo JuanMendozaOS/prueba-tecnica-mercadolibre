@@ -7,8 +7,8 @@ export function getAuthor () {
   return author
 }
 
-export function countDecimals (number) {
+export function countDecimals (number, decimalSeparator) {
   if (Math.floor(number) === number) return 0
 
-  return number.toString().split('.')[1].length || 0
+  return number.toString().split(decimalSeparator)[1].length || 0
 }
