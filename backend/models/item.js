@@ -1,6 +1,6 @@
 import axios from 'axios'
 import dotenv from 'dotenv'
-import { countDecimals, getAuthor } from '../utils.js'
+import { getDecimals, getAuthor } from '../utils.js'
 dotenv.config()
 
 const BASE_URL = process.env.BASE_URL
@@ -27,7 +27,7 @@ export class ItemModel {
     const { data } = await axios.get(url)
 
     const detailsUrl = new URL(`${BASE_URL}/items/${id}/description`)
-    console.log(detailsUrl)
+
     const { data: detailsData } = await axios.get(detailsUrl)
 
     const item = { ...getItem(data), sold_quantity: data.sold_quantity, description: detailsData.plain_text }
@@ -47,7 +47,7 @@ function getItem (result) {
     price: {
       currency: result.currency_id,
       amount: result.price,
-      decimals: countDecimals(result.price, '.')
+      decimals: getDecimals(result.price, '.')
     },
     picture: result.thumbnail,
     condition: result.buying_mode,
