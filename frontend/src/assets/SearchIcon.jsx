@@ -1,4 +1,4 @@
-export function SearchIcon() {
+export function SearchIcon () {
   return (
     <svg
       width="100%"
@@ -12,5 +12,5 @@ export function SearchIcon() {
         fill="#000000"
       />
     </svg>
-  );
+  )
 }
