@@ -9,7 +9,6 @@ const fetchProducts = async (search) => {
     const response = await client.get(`/items?q=${search}`)
     const { data } = response
     toast.success('Query exitoso')
-    console.log(data)
     return data.items || []
   } catch {
     toast.error('Ocurrió un error')

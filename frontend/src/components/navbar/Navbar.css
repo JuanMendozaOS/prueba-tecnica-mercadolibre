@@ -2,6 +2,7 @@
   background-color: var(--primary);
   display: flex;
   justify-content: center;
+  align-items: center;
   padding: 15px 20px;
   gap: 2rem;
 }
@@ -18,9 +19,13 @@
 }
 
 .search-form > input {
-  width: 400px;
+  width: 500px;
   padding: 0 10px;
   border: none;
+}
+
+.search-form > input:focus {
+  outline: none;
 }
 
 .search-button {

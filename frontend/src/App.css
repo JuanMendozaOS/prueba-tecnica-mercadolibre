@@ -12,9 +12,7 @@
 }
 
 .app-container {
-  width: 100vw;
   height: auto;
-  overflow-x: hidden;
 }
 
 .main-container {

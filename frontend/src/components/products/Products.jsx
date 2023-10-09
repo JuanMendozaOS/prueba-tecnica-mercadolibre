@@ -15,7 +15,7 @@ export function Products () {
       {products.length !== 0
         ? (
             products.map(({ id, title, picture, price, free_shipping: freeShipping }) => (
-            <Link to={`/items/${id}`} key={id}>
+            <Link to={`/items/${id}`} key={id} style={{ textDecoration: 'none', color: 'inherit' }}>
               <div className="product-container">
                 <img src={picture} alt="Product Image" />
                 <div className="product-info">
