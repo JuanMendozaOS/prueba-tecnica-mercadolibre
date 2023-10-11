@@ -15,8 +15,8 @@ export class ItemModel {
     const url = new URL(`${BASE_URL}/sites/MLA/search`)
     if (query) url.searchParams.set('q', query)
     const { data } = await axios.get(url)
-
-    const categories = getCategories(data.filters)
+    console.log(data)
+    const categories = getCategories(data.available_filters)
     const items = data.results.map(result => getItem(result))
 
     return { author, categories, items }
@@ -36,8 +36,12 @@ export class ItemModel {
 }
 
 function getCategories (filters) {
-  return filters.find(filter => filter.id === CATEGORY_ID)?.values
-    ?.map(category => category.name)
+  const categoriesList = filters.find(filter => filter.id === CATEGORY_ID)?.values || []
+
+  // sort categories by amount of results DESC
+  const sortedCategories = categoriesList.sort((a, b) => b.results - a.results)
+
+  return sortedCategories.slice(0, 4).map((element) => element.name)
 }
 
 function getItem (result) {
